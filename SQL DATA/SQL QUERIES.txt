@@ -1,0 +1,23 @@
+TO AUTO CALCULATE THE CALORIE NEEDED IN THE CUSTOMER 2
+
+SELECT
+   Weights,
+   Height,
+   Age,
+   Gender,
+   CASE Gender
+      WHEN 'M' THEN 66 + (6.23*2.2*Weights) + (12.7*12*Height)-(6.8*Age)
+      WHEN 'F' THEN 655 + (4.35*2.2*Weights) + (4.7*12*Height)-(4.7*Age)
+      ELSE NULL
+   END AS Calorie_Needed
+FROM Customer2;
+
+
+TO DISPLAY THE RESULT OF THEIR INPUT 
+
+
+SELECT f.Food_Name, f.Servings, f.Calorie_per_100g, f.Times
+FROM Food f
+JOIN Customer2 c ON f.Calorie_ID = c.Calorie_ID AND f.Diet_ID = c.Diet_ID
+JOIN Allergies a ON c.Allergy_ID = a.Allergy_ID AND c.Medical_ID = a.Medical_ID
+WHERE c.Calorie_ID > 1800 AND a.Medical_ID = 'M' AND a.Allergy_ID = 'A';
