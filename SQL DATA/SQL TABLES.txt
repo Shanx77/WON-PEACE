@@ -44,10 +44,10 @@ CREATE TABLE Food (
     Servings varchar(100),
     Times varchar(100),
     Calorie_per_100g int,
-	Calorie_ID varchar(20),
-	Diet_ID varchar(20),
-	Common_Food varchar(100),
-	foreign key (Calorie_ID, Diet_ID) references Customer2(Calorie_ID,Diet_ID)
+    Calorie_ID varchar(20),
+    Diet_ID varchar(20),
+    Common_Food varchar(100),
+    foreign key (Calorie_ID, Diet_ID) references Customer2(Calorie_ID,Diet_ID)
 );
 
 CREATE TABLE Diet_Plan(
